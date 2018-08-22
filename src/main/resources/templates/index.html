@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ogłoszenia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style type="text/css">
+        .header {
+            background: greenyellow;
+            padding: 40px;
+            display: flex;
+            flex-direction: row;
+
+        }
+        .body {
+            background: gainsboro;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .logo {
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="header">
+    <div>
+        <img src="announcement-clipart-meeting-announcement-clipart-1.jpg" class="logo" alt="logo"/>
+    </div>
+
+    <div>
+        <h2>
+            Ogłoszenia lokalne:
+        </h2>
+    </div>
+    <div>
+        <p3>Dodaj ogłoszenie: </p3>
+        <form action="/addAd" method="post" th:object="${newAd}">
+            Tytuł: <input type="text" th:field="*{title}" /> <br/>
+            Opis: <input type="text" th:field="*{description}" /> <br/>
+            <input type="submit" value="Dodaj" />
+        </form>
+    </div>
+
+
+</div>
+
+<div class="body">
+
+    <div>
+        <ul>
+            <li th:each="ad: ${allAds}">
+                <!--<span th:text="${ad.type} +'   '"></span>-->
+                <a th:href="'ogloszenie?tytul=' + ${ad.title}" th:text="${ad.title}"></a>
+            </li>
+
+        </ul>
+    </div>
+
+
+
+</div>
+
+
+</body>
+</html>
