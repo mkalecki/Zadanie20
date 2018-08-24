@@ -22,7 +22,6 @@ public class HomeController {
         List<Advertisement> ads = adRepository.getAds();
 
         model.addAttribute("allAds",ads);
-        model.addAttribute("newAd", new Advertisement());
         return "index";
     }
 
@@ -31,6 +30,13 @@ public class HomeController {
         Advertisement findedAd = adRepository.findByName(tytul);
         model.addAttribute("adv", findedAd);
         return "adview";
+    }
+
+    @GetMapping("/addAdPage")
+    public String newAdView (Model model){
+        model.addAttribute("newAd", new Advertisement());
+
+        return "addad";
     }
 
     @PostMapping("/addAd")

@@ -6,47 +6,82 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style type="text/css">
+
+        .title {
+            font-size: x-large;
+            font-family: "Courier New";
+            color: black;
+        }
+
+        .navigation {
+            list-style: none;
+            margin: 0;
+
+            background: deepskyblue;
+
+            display: flex;
+
+            -webkit-flex-flow: row wrap;
+            justify-content: flex-start;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            display: block;
+            height: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: white;
+        }
+
+        .navigation a:hover {
+            background: blue;
+        }
+
         .header {
             background: greenyellow;
-            padding: 40px;
             display: flex;
             flex-direction: row;
+            padding: 10px;
 
         }
+
         .body {
             background: gainsboro;
-            padding: 40px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
 
         }
+
         .logo {
-            height: 80px;
+            height: 100px;
         }
     </style>
 </head>
 
 <body>
-<div class="header">
-    <!--<div>-->
-        <img src="announcement-clipart-meeting-announcement-clipart-1.jpg" class="logo" alt="logo"/>
-    <!--</div>-->
 
-    <!--<div>-->
-        <h2>
-            Ogłoszenia lokalne:
-        </h2>
-    <!--</div>-->
+<a href="/"><img src="announcement-clipart-meeting-announcement-clipart-1.jpg" height="80px">
+    <span class="title">Tablica ogłoszeń</span>
+</a>
+<ul class="navigation">
+
+    <li><a th:href="addAdPage">Dodaj ogłoszenie</a></li>
+    <li><a href="#">Filtry</a></li>
 
 
+</ul>
 
-</div>
+
 
 <div class="body">
+    <br>
+    <h4>Szczegóły ogłoszenia:</h4>
+    <br>
 
-    <!--<h4 th:text="'kategoria: ' + ${adv.type}"></h4>-->
-
- <h2 th:text="${adv.title}"> </h2>
+ <h5 th:text="${adv.title}"> </h5>
 
     <p th:text="${adv.description}"></p>
 

@@ -31,7 +31,7 @@
             height: 30px;
             padding-left: 10px;
             padding-right: 10px;
-            color: pink;
+            color: white;
         }
 
         .navigation a:hover {
@@ -73,21 +73,24 @@
 
 
 </ul>
-
-
 <div class="body">
-    <br>
-    <h5>Aktualne ogłoszenia:</h5>
-    <br>
-    <ul>
-        <li th:each="ad: ${allAds}">
-            <!--<span th:text="${ad.type} +'   '"></span>-->
-            <a th:href="'ogloszenie?tytul=' + ${ad.title}" th:text="${ad.title}"></a>
-        </li>
 
-    </ul>
+    <div style="display: flex; flex-direction: column; justify-content: flex-end">
+
+        <h5>Dodaj ogłoszenie:</h5>
+
+
+        <form action="/addAd" method="post" th:object="${newAd}">
+            Tytuł:<br> <input type="text" th:field="*{title}"/><br>
+
+            Opis: <br><textarea name="descr" style="width:400px; height:200px;" th:field="*{description}"/><br>
+
+
+            <input type="submit" value="Dodaj"/>
+        </form>
+
+
+    </div>
 </div>
-
-
 </body>
 </html>
