@@ -22,7 +22,15 @@ public class Advertisement {
         return description;
     }
 
-//    public AdType getType() {
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    //    public AdType getType() {
 //        return type;
 //    }
 }

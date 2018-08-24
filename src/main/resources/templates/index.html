@@ -8,42 +8,52 @@
     <style type="text/css">
         .header {
             background: greenyellow;
-            padding: 40px;
-            display: flex;
+           display: flex;
             flex-direction: row;
-
-        }
+            padding: 10px;
+            justify-content:space-evenly;
+                    }
         .body {
             background: gainsboro;
-            padding: 40px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
 
         }
         .logo {
-            height: 80px;
+            height: 100px;
         }
     </style>
 </head>
 
 <body>
 <div class="header">
-    <div>
+    <!--<div>-->
         <img src="announcement-clipart-meeting-announcement-clipart-1.jpg" class="logo" alt="logo"/>
-    </div>
+    <!--</div>-->
 
-    <div>
+    <!--<div>-->
         <h2>
-            Ogłoszenia lokalne:
+            Ogłoszenia lokalne
         </h2>
-    </div>
-    <div>
-        <p3>Dodaj ogłoszenie: </p3>
-        <form action="/addAd" method="post" th:object="${newAd}">
-            Tytuł: <input type="text" th:field="*{title}" /> <br/>
-            Opis: <input type="text" th:field="*{description}" /> <br/>
-            <input type="submit" value="Dodaj" />
-        </form>
+    <!--</div>-->
+    <div style="display: flex; flex-direction: column; justify-content: flex-end; padding: 10px">
+
+            <p3>Dodaj ogłoszenie: </p3>
+
+
+            <form action="/addAd" method="post" th:object="${newAd}" >
+                    Tytuł:<br> <input type="text" th:field="*{title}" /><br>
+
+                    Opis: <br><input type="text" th:field="*{description}" /><br>
+
+
+
+                <input type="submit" value="Dodaj" />
+            </form>
+
+
     </div>
 
 
